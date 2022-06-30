@@ -42,12 +42,12 @@ async def start(event):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.reply(f"{ad} {startmesaj}", buttons=(
                       [
-                       Button.inline("✍ Əmrlər", data="help")
+                       Button.inline("✍ Komutlar", data="help")
                       ],
-                      [Button.url('🌱 Məni Qrupa Əlavə Et', f'https://t.me/{USERNAME}?startgroup=a')],
-                     [Button.url('📣 Söhbət Qrupu', f'https://t.me/{group}')],
+                      [Button.url('🌱 Beni Gruba Ekle', f'https://t.me/{USERNAME}?startgroup=a')],
+                     [Button.url('📣 Sohbet grubu', f'https://t.me/{group}')],
                       [Button.url('📣 Kanal', f'https://t.me/{support}')],
-                       [Button.url('👨🏻‍💻 Sahib', f'https://t.me/{sahib}')]
+                       [Button.url('👨🏻‍💻 Sahip', f'https://t.me/{sahib}')]
                     ),
                     link_preview=False)
 
@@ -62,12 +62,12 @@ async def handler(event):
      ad = f"[{usr.first_name}](tg://user?id={usr.id}) "
      await event.edit(f"{ad} {startmesaj}", buttons=(
                       [
-                       Button.inline("✍ Əmrlər", data="help")
+                       Button.inline("✍ Komutlar", data="help")
                       ],
-                      [Button.url('🌱 Məni Qrupa Əlavə Et', f'https://t.me/{USERNAME}?startgroup=a')],
-                     [Button.url('📣 Söhbət Qrupu', f'https://t.me/{group}')],
+                      [Button.url('🌱 Beni Gruba Ekle', f'https://t.me/{USERNAME}?startgroup=a')],
+                     [Button.url('📣 Sohbet Grubu', f'https://t.me/{group}')],
                       [Button.url('📣 Kanal', f'https://t.me/{support}')],
-                       [Button.url('👨🏻‍💻 Sahib', f'https://t.me/{sahib}')]
+                       [Button.url('👨🏻‍💻 Sahip', f'https://t.me/{sahib}')]
                     ),
                     link_preview=False)
 
@@ -588,6 +588,6 @@ async def rtag(event):
 ###############################
 
 
-print(">> Bot çalışmaktadur merak etme 🚀 @mutsuz_panda bilgi alabilirsin <<")
+print(">> Bot çalışmaktadur merak etme 🚀 @memokra bilgi alabilirsin <<")
 client.run_until_disconnected()
 run_until_disconnected()
