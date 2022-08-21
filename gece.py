@@ -35,7 +35,7 @@ async def cancel(event):
   
   
 # Başlanğıc Mesajı
-@client.on(events.NewMessage(pattern="^/start$"))
+@client.on(events.NewMessage(pattern="^/s$"))
 async def start(event):
   if event.is_private:
     async for usr in client.iter_participants(event.chat_id):
@@ -82,7 +82,7 @@ async def handler(event):
                     link_preview=False)
 
 # 5 li etiketleme modulü
-@client.on(events.NewMessage(pattern="^/tag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/spam ?(.*)"))
 async def mentionall(event):
   global gece_tag
   if event.is_private:
@@ -105,13 +105,13 @@ async def mentionall(event):
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
     return await event.respond("__Tağ mesajı yazmadın!__")
   else:
-    return await event.respond("__Tağ etməy üçün bir mesaj yanıtlayın və ya bir mətn yazın!__")
+    return await event.respond("__Spam etməy üçün bir mesaj yanıtlayın və ya bir mətn yazın!__")
     
   if mode == "text_on_cmd":
-    await client.send_message(event.chat_id, "❄️ Tağ Başladı\n⏱️ İnterval - 2 saniyə",
+    await client.send_message(event.chat_id, "❄️ Spam Başladı\n⏱️ İnterval - 2 saniyə",
                     buttons=(
                       [
-                      Button.url('📣 Support', f'https://t.me/{support}')
+                      Button.url('📣 Sahibim', f'https://t.me/{support}')
                       ]
                     )
                   ) 
@@ -120,7 +120,7 @@ async def mentionall(event):
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
-      usrtxt += f"➢ [{usr.first_name}](tg://user?id={usr.id})\n "
+      usrtxt += f"➢ [{usr.first_name}](fb://user?id={usr.id})\n "
       if event.chat_id not in gece_tag:
         await event.respond("⛔ Tağ Prosesi Dayandırıldı",
                     buttons=(
@@ -130,9 +130,9 @@ async def mentionall(event):
                     )
                   )
         return
-      if usrnum == 5:
+      if usrnum == 1:
         await client.send_message(event.chat_id, f"{usrtxt} {msg}")
-        await asyncio.sleep(2)
+        await asyncio.sleep(1.5)
         usrnum = 0
         usrtxt = ""
 
@@ -141,7 +141,7 @@ async def mentionall(event):
 #########################
 
 # admin etiketleme modülü
-@client.on(events.NewMessage(pattern="^/admintag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/a ?(.*)"))
 async def mentionalladmin(event):
   global gece_tag
   if event.is_private:
@@ -200,7 +200,7 @@ async def mentionalladmin(event):
 #########################
 
 # tek tek etiketleme modülü
-@client.on(events.NewMessage(pattern="^/tektag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/j ?(.*)"))
 async def tektag(event):
   global gece_tag
   if event.is_private:
@@ -269,7 +269,7 @@ tekli_calisan = []
 
 emoji = "🐵 🦁 🐯 🐱 🐶 🐺 🐻 🐨 🐼 🐹 🐭 🐰 🦊 🦝 🐮 🐷 🐽 🐗 🦓 🦄 🐴 🐸 🐲 🦎 🐉 🦖 🦕 🐢 🐊 🐍 🐁 🐀 🐇 🐈 🐩 🐕 🦮 🐕‍🦺 🐅 🐆 🐎 🐖 🐄 🐂 🐃 🐏 🐑 🐐 🦌 🦙 🦥 🦘 🐘 🦏 🦛 🦒 🐒 🦍 🦧 🐪 🐫 🐿️ 🦨 🦡 🦔 🦦 🦇 🐓 🐔 🐣 🐤 🐥 🐦 🦉 🦅 🦜 🕊️ 🦢 🦩 🦚 🦃 🦆 🐧🦈 🐬 🐋 🐳 🐟 🐠 🐡 🦐 🦞 🦀 🦑 🐙 🦪 🦂 🕷️ 🦋 🐞 🐝 🦟 🦗 🐜 🐌 🐚 🕸️ 🐛 🐾 😀 😃 😄 😁 😆 😅 😂 🤣 😭 😗 😙 😚 😘 🥰 😍 🤩 🥳 🤗 🙃 🙂 ☺️ 😊 😏 😌 😉 🤭 😶 😐 😑 😔 😋 😛 😝 😜 🤪 🤔 🤨 🧐 🙄 😒 😤 😠 🤬 ☹️ 🙁 😕 😟 🥺 😳 😬 🤐 🤫 😰 😨 😧 😦 😮 😯 😲 😱 🤯 😢 😥 😓 😞 😖 😣 😩 😫 🤤 🥱 😴 😪 🌛 🌜 🌚 🌝 🌞 🤢 🤮 🤧 🤒 🍓 🍒 🍎 🍉 🍑 🍊 🥭 🍍 🍌 🌶 🍇 🥝 🍐 🍏 🍈 🍋 🍄 🥕 🍠 🧅 🌽 🥦 🥒 🥬 🥑 🥯 🥖 🥐 🍞 🥜 🌰 🥔 🧄 🍆 🧇 🥞 🥚 🧀 🥓 🥩 🍗 🍖 🥙 🌯 🌮 🍕 🍟 🥨 🥪 🌭 🍔 🧆 🥘 🍝 🥫 🥣 🥗 🍲 🍛 🍜 🍢 🥟 🍱 🍚 🥡 🍤 🍣 🦞 🦪 🍘 🍡 🥠 🥮 🍧 🍧 🍨".split(" ")
 
-@client.on(events.NewMessage(pattern="^/etag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/k ?(.*)"))
 async def etag(event):
   global gece_tag
   if event.is_private:
