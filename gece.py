@@ -111,7 +111,7 @@ async def mentionall(event):
     await client.send_message(event.chat_id, "❄️ Spam Başladı\n⏱️ İnterval - 2 saniyə",
                     buttons=(
                       [
-                      Button.url('📣 Sahibim', f'https://t.me/{support}')
+                      Button.url('📣 Gurupumuz', f'https://t.me/{support}')
                       ]
                     )
                   ) 
@@ -122,7 +122,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"➢ [{usr.first_name}](fb://user?id={usr.id})\n "
       if event.chat_id not in gece_tag:
-        await event.respond("⛔ Tağ Prosesi Dayandırıldı",
+        await event.respond("⛔ Spam Prosesi Dayandırıldı",
                     buttons=(
                       [
                        Button.url('📣 Support', f'https://t.me/{support}')
@@ -132,7 +132,7 @@ async def mentionall(event):
         return
       if usrnum == 1:
         await client.send_message(event.chat_id, f"{usrtxt} {msg}")
-        await asyncio.sleep(1.5)
+        await asyncio.sleep(3)
         usrnum = 0
         usrtxt = ""
 
